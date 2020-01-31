@@ -15,10 +15,14 @@ function App() {
           display BubblePage when you're authenticated 
 
         */}
-        {/* <Link to="/protected">Protected Page</Link> */}
+        <h1>Welcome to Bubbles!</h1>
+        <Link to="/login">
+          <h2>Click to Login</h2>
+        </Link>
+
         <PrivateRoute path="/protected" component={BubblePage} />
         <Route exact path="/login" component={Login} />
-        <Route component={Login} />
+        {/* <Route component={Login} /> */}
       </div>
     </Router>
   );

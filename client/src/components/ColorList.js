@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const initialColor = {
@@ -10,6 +10,16 @@ const ColorList = ({ colors, updateColors }) => {
   console.log(colors);
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
+
+  // useEffect(() => {
+  //   const colorToUpdate = updateColors.color.find(
+  //     color => `${color.id}` === id
+  //   );
+
+  //   if (colorToUpdate) {
+  //     setColorToEdit(colorToUpdate);
+  //   }
+  // }, [updateColors.color, id]);
 
   const editColor = color => {
     setEditing(true);
@@ -34,12 +44,14 @@ const ColorList = ({ colors, updateColors }) => {
         {colors.map(color => (
           <li key={color.color} onClick={() => editColor(color)}>
             <span>
-              <span className="delete" onClick={e => {
-                    e.stopPropagation();
-                    deleteColor(color)
-                  }
-                }>
-                  x
+              <span
+                className="delete"
+                onClick={e => {
+                  e.stopPropagation();
+                  deleteColor(color);
+                }}
+              >
+                x
               </span>{" "}
               {color.color}
             </span>
