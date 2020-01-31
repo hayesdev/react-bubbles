@@ -28,7 +28,7 @@ const ColorList = ({ colors, updateColors }) => {
       .put(`http://localhost:4000/api/colors/${colorToEdit.id}`, colorToEdit)
       .then(res => {
         setColorToEdit(res.data);
-        // colorToEdit.history.push(`/protected/${id}`);
+        colorToEdit.history.push(`/protected/${id}`);
       })
       .catch(err => console.log(err));
   };
