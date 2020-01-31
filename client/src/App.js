@@ -16,12 +16,13 @@ function App() {
 
         */}
         <h1>Welcome to Bubbles!</h1>
-        <Link to="/login">
-          <h2>Click to Login</h2>
-        </Link>
+
+        <h3>
+          <Link to="/">Click to Login</Link>
+        </h3>
 
         <PrivateRoute path="/protected" component={BubblePage} />
-        <Route exact path="/login" component={Login} />
+        <Route exact path="/" component={Login} />
         {/* <Route component={Login} /> */}
       </div>
     </Router>
