@@ -35,6 +35,14 @@ const ColorList = ({ colors, updateColors }) => {
 
   const deleteColor = color => {
     // make a delete request to delete this color
+    e.preventDefault();
+    axios
+      .delete(`http://localhost:4000/colors/${color.id}`)
+      .then(res => {
+        updateColors(res.data);
+        colors.history.push("/protected");
+      })
+      .catch(err => console.log(err));
   };
 
   return (
